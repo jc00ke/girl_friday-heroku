@@ -2,9 +2,6 @@ GEM
   remote: http://rubygems.org/
   specs:
     configuration (1.2.0)
-    em-redis (0.3.0)
-      eventmachine
-    eventmachine (0.12.10)
     girl_friday (0.9.0)
     heroku (2.0.4)
       launchy (>= 0.3.2)
@@ -16,6 +13,7 @@ GEM
     mime-types (1.16)
     rack (1.2.2)
     rake (0.8.7)
+    redis (2.2.0)
     rest-client (1.6.1)
       mime-types (>= 1.16)
     sinatra (1.2.6)
@@ -28,7 +26,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  em-redis
   girl_friday
   heroku
+  redis
   sinatra
