@@ -16,6 +16,9 @@ class App < Sinatra::Base
       :password   => uri.password
     }
   end
+  helpers do
+    include Rack::Utils
+  end
   REDIS = Redis.new store_config
 
   QUEUE = GirlFriday::WorkQueue.new('dat_q', :store => GirlFriday::Store::Redis, :store_config => [store_config]) do |msg|
@@ -28,7 +31,7 @@ class App < Sinatra::Base
   end
 
   post '/' do
-    QUEUE << params[:message]
+    QUEUE << escape_html(params[:message])
     redirect to('/')
   end
 end
