@@ -5,6 +5,8 @@
 
   %input{ :type => :submit }
 
+%a#clear{ :href => '#' }Clear messages
+
 %p Below are the messages from the server
 #messages
   - @messages.each do |msg|
