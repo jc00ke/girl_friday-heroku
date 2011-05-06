@@ -1,0 +1,11 @@
+
+%form{ :method => :post }
+  %label{ :for => 'message' } Message
+  %input#message{ :type => :text, :name => :message }
+
+  %input{ :type => :submit }
+
+%p Below are the messages from the server
+#messages
+  - @messages.each do |msg|
+    .message= msg
