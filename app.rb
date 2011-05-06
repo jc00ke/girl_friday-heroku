@@ -22,7 +22,7 @@ class App < Sinatra::Base
   REDIS = Redis.new store_config
 
   QUEUE = GirlFriday::WorkQueue.new('dat_q', :store => GirlFriday::Store::Redis, :store_config => [store_config]) do |msg|
-    REDIS.rpush('messages', msg)
+    REDIS.lpush('messages', msg)
   end
 
   get '/' do
